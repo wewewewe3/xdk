@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+<html>
+    <!--
+  * Copyright © 2012-2015, Intel Corporation. All rights reserved.
+  * Please see the included README.md file for license terms and conditions.
+  -->
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="media_button_bar/css/media_button_bar.css">
+        <link rel="stylesheet" type="text/css" href="galleria/galleria.classic.css">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="app_framework/2.1/css/af.ui.min.css">
+        <link rel="stylesheet" type="text/css" href="app_framework/2.1/css/icons.min.css">
+        <title>Blank App Designer Packaged Web App Project Template</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+        <!--
+  * The "meta viewport" tag (below) helps your app size appropriately to a device's ideal viewport.
+  * Note that Windows device viewports work better when initialized using the @viewport CSS rule.
+  * For a quick overview of "meta viewport" and @viewport, see this article:
+  *   http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag
+  * To see how it works, try your app on a real device with and without a "meta viewport" tag.
+  * Additional useful references include:
+  *   http://www.quirksmode.org/mobile/viewports.html
+  *   http://www.quirksmode.org/mobile/metaviewport/devices.html
+  *   https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+-->
+
+        <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+
+        <style>
+            /* following three (cascaded) are equivalent to above three meta viewport statements */
+            /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
+            /* see http://dev.w3.org/csswg/css-device-adapt/ */
+                @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+                @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+                /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+        </style>
+
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+
+        <!-- Recommended location for your JavaScript libraries -->
+        <!-- These library references (below) are just examples to give you the general idea... -->
+        <!-- <script src="lib/mc/hammer.js"></script> -->
+        <!-- <script src="lib/ft/fastclick.js"></script> -->
+
+        <!--
+  * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
+  * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?
+  * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
+  * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
+-->
+        <script src="cordova.js" id="xdkJScordova_"></script>
+
+        <script src="js/app.js"></script>
+        <!-- for your event code, see README and file comments for details -->
+        <script src="js/init-app.js"></script>
+        <!-- for your init code, see README and file comments for details -->
+        <script src="xdk/init-dev.js"></script>
+        <!-- normalizes device and document ready events, see file for details -->
+        <!--            
+            You may substitute jQuery for the App Framework selector library.
+            See http://app-framework-software.intel.com/documentation.php#afui/afui_jquery
+        -->
+        <script type="application/javascript" src="app_framework/2.1/appframework.js"></script>
+        <script type="application/javascript" src="app_framework/2.1/appframework.ui.js" data-ver="1"></script>
+        <script type="application/javascript" src="js/index_user_scripts.js"></script>
+        <script type="application/javascript" src="xdk/ad/af_subpage.js"></script>
+        <script type="application/javascript" src="app_framework/themeRelease.js"></script>
+        <!--            
+            You may substitute jQuery for the App Framework selector library.
+            See http://app-framework-software.intel.com/documentation.php#afui/afui_jquery
+        -->
+        <script type="application/javascript" src="lib/jquery.min.js"></script>
+        <script type="application/javascript" src="galleria/galleria-1.3.6.min.js"></script>
+        <script type="application/javascript" src="galleria/galleria.classic.min.js"></script>
+        <script type="application/javascript" src="galleria/galleria-startup.js"></script>
+        <script type="application/javascript" src="app_framework/pageChangeRepeater.js"></script>
+    </head>
+
+    <body id="afui" class="android light">
+
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+        <header class="wrapping-col wrap-element uib_w_1" data-uib="app_framework/header" data-ver="2" id="af-header-0">
+            <h1>النباتات البرية</h1>
+        </header>
+        <div id="content" class="uwrap">
+            <div class="upage panel background" id="mainpage" data-header="af-header-0" data-footer="af-footer-0">
+                <div class="upage-content content-area vertical-col" id="uib_page_2">
+
+                    <div class="grid grid-pad urow uib_row_39 row-height-39" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_68 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="widget uib_w_141 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/hader.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                    <div class="grid grid-pad urow uib_row_42 row-height-42" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_70 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area center-h-v-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_147 d-margins imgmain" data-uib="media/graphic_button" data-ver="0">
+                                    <img src="images/nabtCN.png">
+                                    <span class="uib-caption"></span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+
+                    <div class="grid grid-pad urow uib_row_41 row-height-41" data-uib="layout/row" data-ver="0">
+
+                        <div class="col uib_col_69 col-0" data-uib="layout/col" data-ver="0">
+
+                            <div class="widget-container content-area center-h-v-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_146 d-margins imgmain" data-uib="media/graphic_button" data-ver="0">
+                                    <img src="images/nabtBN.png">
+                                    <span class="uib-caption"></span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div><span class="uib_shim"></span>
+                    </div>
+
+                    <div class="grid grid-pad urow uib_row_43 row-height-43" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_71 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area center-h-v-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_148 d-margins aboutsize" data-uib="media/graphic_button" data-ver="0">
+                                    <img src="images/about.png">
+                                    <span class="uib-caption"></span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+
+                <div id="nbatgrid" class="upage-content hidden vertical-col">
+                    <div class="grid grid-pad urow uib_row_10 row-height-10" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_18 col-0_4-12_4-4" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col left">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_15 d-margins text-over-pic media-button-text-bottom" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/qrees.png">
+                                    <span class="uib-caption">قرّيص</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_17 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_16 d-margins text-over-pic media-button-text-bottom" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/bkhtry.png">
+
+                                    <span class="uib-caption">بختري</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_15 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_17 d-margins media-button-text-bottom text-over-pic" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/brooq.png">
+                                    <span class="uib-caption">بروق</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+
+                    <div class="grid grid-pad urow uib_row_11 row-height-11" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_21 col-0_4-12_4-4" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_18 d-margins text-over-pic media-button-text-bottom" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/7mat.png">
+                                    <span class="uib-caption">حمطّ</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_20 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_19 d-margins text-over-pic media-button-text-bottom" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/bsbas.png">
+                                    <span class="uib-caption">بسّباس</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_19 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_20 d-margins media-button-text-bottom text-over-pic" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/baslalbar.png">
+                                    <span class="uib-caption">بصل البر</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+
+                    <div class="grid grid-pad urow uib_row_12 row-height-12" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_24 col-0_4-12_4-4" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_21 d-margins media-button-text-bottom text-over-pic" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/bo3thran.png">
+                                    <span class="uib-caption">بعيثران</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_23 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_22 d-margins media-button-text-bottom text-over-pic" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/thnda.png">
+                                    <span class="uib-caption">ثندة</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_22 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_23 d-margins media-button-text-bottom text-over-pic" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/jrjir.png">
+                                    <span class="uib-caption">جرجير</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+
+                    <div class="grid grid-pad urow uib_row_13 row-height-13" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_27 col-0_4-12_4-4" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_24 d-margins media-button-text-bottom text-over-pic" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/ja3d.png">
+                                    <span class="uib-caption">جعّد</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_26 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_25 d-margins media-button-text-bottom text-over-pic" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/7aza.png">
+                                    <span class="uib-caption">حزآ</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_25 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_26 d-margins media-button-text-bottom text-over-pic" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/7nbaz.png">
+                                    <span class="uib-caption">حمباز</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+
+                    <div class="grid grid-pad urow uib_row_14 row-height-14" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_30 col-0_4-12_4-4" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_27 d-margins media-button-text-bottom text-over-pic" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/7mb9ee9.png">
+                                    <span class="uib-caption">حمبصيص</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_29 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_28 d-margins media-button-text-bottom text-over-pic" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/7omeed.png">
+                                    <span class="uib-caption">حميض</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_28 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_29 d-margins media-button-text-bottom text-over-pic" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/7ndal.png">
+                                    <span class="uib-caption">حنظل</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+
+                    <div class="grid grid-pad urow uib_row_15 row-height-15" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_33 col-0_4-12_4-4" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_30 d-margins media-button-text-bottom text-over-pic" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/7owa.png">
+                                    <span class="uib-caption">حوآ</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_32 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_31 d-margins media-button-text-bottom text-over-pic" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/7ozan.png">
+                                    <span class="uib-caption">حوذان</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_31 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_32 d-margins media-button-text-bottom text-over-pic" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/5obeez.png">
+                                    <span class="uib-caption">خبيز</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+
+                    <div class="grid grid-pad urow uib_row_16 row-height-16" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_36 col-0_4-12_4-4" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_33 d-margins media-button-text-bottom text-over-pic" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/reb7la.png">
+
+                                    <span class="uib-caption">ربحلا</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_35 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_34 d-margins media-button-text-bottom text-over-pic" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/reglah.png">
+                                    <span class="uib-caption">رجلة</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_34 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_35 d-margins media-button-text-bottom text-over-pic" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/r5am.png">
+                                    <span class="uib-caption">رخام</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+
+                    <div class="grid grid-pad urow uib_row_17 row-height-17" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_39 col-0_4-12_4-4" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_36 d-margins text-over-pic media-button-text-bottom" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/rashad.png">
+                                    <span class="uib-caption">رشاد</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_38 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_37 d-margins text-over-pic media-button-text-bottom" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/za3lloq.png">
+                                    <span class="uib-caption">زعلوق</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_37 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_38 d-margins text-over-pic media-button-text-bottom" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/sader.png">
+
+                                    <span class="uib-caption">سدر</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+
+                    <div class="grid grid-pad urow uib_row_18 row-height-18" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_42 col-0_4-12_4-4" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_39 d-margins text-over-pic media-button-text-bottom" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/s3dan.png">
+
+                                    <span class="uib-caption">سعدان</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_41 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_40 d-margins text-over-pic media-button-text-bottom" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/sha7oom.png">
+                                    <span class="uib-caption">شحوم</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_40 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_41 d-margins text-over-pic media-button-text-bottom" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/shadqalgmal.png">
+
+                                    <span class="uib-caption"> شدق الجمل</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+
+                    <div class="grid grid-pad urow uib_row_19 row-height-19" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_45 col-0_4-12_4-4" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_42 d-margins text-over-pic media-button-text-bottom" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/shfla7.png">
+                                    <span class="uib-caption">شفلح</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_44 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_43 d-margins text-over-pic media-button-text-bottom" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/shee7.png">
+
+                                    <span class="uib-caption">شيح</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_43 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_44 d-margins text-over-pic media-button-text-bottom" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/9faar.png">
+                                    <span class="uib-caption">صفار</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+
+                    <div class="grid grid-pad urow uib_row_25 row-height-25" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_54 col-0_4-12_4-4" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_106 d-margins text-over-pic media-button-text-bottom" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/3tar.png">
+                                    <span class="uib-caption">عتر</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_53 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_107 d-margins text-over-pic media-button-text-bottom" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/3rfag.png">
+                                    <span class="uib-caption">عرفج</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <div class="col uib_col_52 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <a class="uib-graphic-button default-graphic-sizing default-image-sizing hover-graphic-button active-graphic-button default-graphic-button default-graphic-text widget uib_w_108 d-margins text-over-pic media-button-text-bottom" data-uib="media/graphic_button"
+                                data-ver="0">
+                                    <img src="images/3shraq.png">
+                                    <span class="uib-caption">عشرق</span>
+                                </a><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+
+                <div id="qrees" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_48 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/qrees.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_49 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>قرّيص</p>
+                            <p>Matricaria aurea</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العربي والشائع : قريص , بابونج , حندقوق , أبو زهيرة , أبو حدرية</p>
+                            <p>&nbsp;</p>
+                            <p>الأسم العلمي</p>
+                            <p>Matricaria aurea ( Loefl.) Sch. -Bip</p>
+                            <p>&nbsp;</p>
+                            <p>الفصيلة : المركبة</p>
+                            <p>Composita</p>
+                            <p>&nbsp;</p>
+                            <p>وصف النبات: نبات عشبي حولي ذو رائحة عطرية زكية يتراوح طوله بين 5-15 سم ذو سيقان رقيقة دقيقة , الأوراق طويلة كأوراق النجيليات وتنمو من عند القاعدة وتتواجد في النصف العلوي من النبات , وهي مقسمة إلى أجزاء كثيرة ورقيقة يصل عرض</p>
+                            <p>الواحدة منها إلى حوالي 5 ملم</p>
+                            <p>&nbsp;</p>
+                            <p>تشبه القبة أو المخروط</p>
+                            <p>&nbsp;</p>
+                            <p>البيئة : ينمو نبات القريص في البيئات ذات التربة الخصبة مثل بعض الروضات والمنحدرات المائية من الجبال .</p>
+                            <p>&nbsp;</p>
+                            <p>الجزء الماكول :</p>
+                            <p>يستعمل نبات القريص كفاتح للشهية وذلك بأكل اوراقه طازجة , كما يضاف لمشروب الشاي لإعطائه نكهة عطرية جيدة , أو يصنع منه مشروب ساخن يطلق عليه بابونج , ولكن عند إضافة كميات كبيرة منه لمشروب الشاي فإنها تكسبه مذاقاً مراً</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="b5try" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_57 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/bkhtry.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_56 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>البختري</p>
+                            <p>Roemeria hybrida</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العربي والشائع : بختري .</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العملي :</p>
+                            <p>Roemeria hybrida (L...) DC</p>
+                            <p>&nbsp;</p>
+                            <p>الفصيلة : الفيومارية Fumariaceae</p>
+                            <p>&nbsp;</p>
+                            <p>وصف النبات : نبات حولي يتراوح طوله بين 10 - 35 سم ومغطى بشعيرات خشنة ودقيقة . الورقة طولها بين 3 - 5 سم وهي مشرحة التقصص . الأزهار أرجوانية غامقة وأحيانا بنفسجية , ويلاحظ أن البتلات تتساقط بسهولة عند</p>
+                            <p>هبوب أدنى ريح . الثمرة خضراء فاتحة مكسوة بشعيرات بيضاء خشنة .</p>
+                            <p>&nbsp;</p>
+                            <p>البيئة :</p>
+                            <p>ينمو البختري في البيئات الرملية الصلبة .</p>
+                            <p>الجزء المأكول : تؤكل أوراقه .</p>
+                            <p>&nbsp;</p>
+                            <p>الجزء المأكول :</p>
+                            <p>تؤكل أوراقه .</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="brooq" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_60 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/brooq.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_61 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>البروق</p>
+                            <p>Asphodelus tenuifolius</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العربي والشائع : بروق , بورق , بيرق , بصل القام .</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العلمي :</p>
+                            <p>Asphodelus tenuifolius (Cav. ) Baker .</p>
+                            <p>&nbsp;</p>
+                            <p>الفصيلة : الزنبقية</p>
+                            <p>Liliaceae</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>وصف النبات</p>
+                            <p>نبات حولي له أفرع كثيرة , الوراق ملساء كثيرة تنمو من القاعدة وتشبه أوراق البصل حيث أنها أسطوانية وضيقة ومستدقة تدريجياً إلى قمة مدببة وطولها يصل تقريباً إلى</p>
+                            <p>ثلث طول الأفرع .</p>
+                            <p>الأزهار بيضاء وتكون في أعلى الأفرع ويوجد في كل بتلة خط أرجواني اللون اما البذور فلونها بين البني والرمادي</p>
+                            <p>&nbsp;</p>
+                            <p>البيئة : ينمو نبات البروق في البيئات الرملية الصلبة وفي الأودية ذات الطمي</p>
+                            <p>&nbsp;</p>
+                            <p>الجزء المأكول</p>
+                            <p>يعمد أهل البادية إلى تجفيف النبات ثم جرشه وإإضافته إلى الأقط أثناء طبخه من أجل تليينه وإضافة نكهة مميزة له , ويمكن التعرف على الإقط المضاف له بروق بوجود قطع صغيرة سوداء في الإقط , وفي بعض المناطق يطبخ البروق مع القرع واللحم
+                                وتعرف هذه الكلة بـ " الخرطة "</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="h7m6" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_63 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/7mat.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_64 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>الحمط</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العربي والشائع : حمط , حماط, جميز , تين بري , أخو التين</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العلمي :</p>
+                            <p>Ficus pseudo-sycomorus Decne</p>
+                            <p>&nbsp;</p>
+                            <p>الفصيلة : التوتية</p>
+                            <p>Moraeeae</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>وصف النبات :</p>
+                            <p>شجرة طولها يصل إلى 6 امتار أو اكثر وهي ذات عصير لبني , اوراقها مفصصة متوسطة الحجم مسننة والأزهار صغيرة .</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>البيئة :</p>
+                            <p>تنمو هذه الشجرة في البيئات الصخرية وعلى جوانب الودية .</p>
+                            <p>&nbsp;</p>
+                            <p>الجزء الماكول :</p>
+                            <p>تؤكل ثمار الحمط الصغيرة ذات اللون المائل للسواد وفيها مرارة بسيطة , وهي أصغر قليلاً من ثمار التين المعروف .</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="bsbas" class="upage-content vertical-col hidden">
+
+                    <div class="widget uib_w_66 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/bsbas.png">
+
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_67 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>بسباس</p>
+                            <p>Anisoscaiadium Lanatum</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العربي والشائع : بسباس .</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العلمي :</p>
+                            <p>Anisoscaiadium Lanatum Boiss</p>
+                            <p>&nbsp;</p>
+                            <p>الفصيلة : الخيمية</p>
+                            <p>Umbelliferae</p>
+                            <p>&nbsp;</p>
+                            <p>وصف النبات :</p>
+                            <p>نبات عشبي حولي منبطح وبعض أفرعه تتجه إلى أعلى بحيث يصل طوله إلى 40 سم . أوراقه مشرحة تشبه اوراق الجزر . الأزهار بيضاء مائلة للبنفجسي وتكون معنقة تخرج جميعاً من نقطة واحدة ثم تترتب لتشكل ما يشبه الخيمة والتي عن طريقها يعرف النبات
+                                من مسافة بعيدة .</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>البيئة :</p>
+                            <p>ينمو نبات البسباس في البيئات الرملية العميقة , والبيئات المفتوحة المنبسطة , والبيئات الصخرية فهو واسع الإنتشار .</p>
+                            <p>&nbsp;</p>
+                            <p>الجزء المأكول :</p>
+                            <p>تؤكل الأوراق مباشرة , او تضاف مع السلطة , كما أنه عند إضافته لمشروب الشاي يكسبه نكهة جيدة .</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="b9lalbr" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_69 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/baslalbar.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_70 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>بصل البر</p>
+                            <p>Allium sphaerocephalum</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العربي والشائع : بصل البر , كراث بري , كريث , بصيل</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العلمي :</p>
+                            <p>Allium sphaerocephalum L</p>
+                            <p>&nbsp;</p>
+                            <p>الفصيلة : الزنبقية</p>
+                            <p>Liliaceae</p>
+                            <p>&nbsp;</p>
+                            <p>وصف النبات :</p>
+                            <p>نبات عشبي حولي ينمو من بصلة بيضية مغطاة بغلاف ورقي متجلد بني اللون تنمو تحت الرمل بعمق حوالي 15 سم , الأوراق خضراء باهته عددها من 2 - 5 وهي أقصر من حامل الأزهار . النورة تحمل في نهاية ساق هوائية يتراوح طوله مابين 30- 90 سم
+                                , ولا يتكون على هذه</p>
+                            <p>الساق أوراق , الأزهار صغيرة أرجوانية غامقة او زهرية مع وجود عروق داكنة</p>
+                            <p>&nbsp;</p>
+                            <p>البيئة :</p>
+                            <p>ينمو هذا النبات في البيئات الرملية المفككة والرملية المتماسكة .</p>
+                            <p>&nbsp;</p>
+                            <p>الجزء المأكول :</p>
+                            <p>تؤكل البصلة العصيرية بعد استخراجها بعناية , ومن ثم يزال الغلاف الخارجي ويفضل غسلها , وهي حلوة الطعم ونكهتها جيدة وتحتوي على مادة لزجة . كما يعمد بعض أهل البادية إلى وضع النورة الرجوانية اللون أثناء عمل السمن وذلك لإعطائه نكهة
+                                مميزة .</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="b3ythran" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_72 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/bo3thran.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_73 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>البعيثران</p>
+                            <p>Artemisia judaica</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العربي والشائع : بعيثران , عبيثران , عبيثرة .</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العلمي :</p>
+                            <p>Artemisia judaica L</p>
+                            <p>&nbsp;</p>
+                            <p>الفصيلة : المركبة</p>
+                            <p>Compositae</p>
+                            <p>&nbsp;</p>
+                            <p>وصف النبات :</p>
+                            <p>نبات شجيري معمر تكسوه شعيرات صوفية كثيرة ذات لون رمادي . يتراوح طول النبات بين 30 - 75 سم , الأوراق السفلية مزدحمة ومفصصة بشكل عميق , أما الأوراق العلوية فصغيرة ومتجمعة وأقل تفصصاً من الأوراق السفلية . الأزهار صفراء في نورة
+                                نصف دائرية قطرها حوالي 4 ملم , ونبات البعيثران عطري فواح ذو رائحة قوية , فإذا هطل المطر وحركته الرياح فإن الوادي كله يفوح برائحته الجميلة .</p>
+                            <p>&nbsp;</p>
+                            <p>البيئة :</p>
+                            <p>ينمو هذا النبات في</p>
+                            <p>البيئات الرملية العميقة والبيئات الطينية الغرينية وعلى حواف الأودية وجوانب الغدران , وهو محدود الإنتشار في بعض المواقع من المنطقة الوسطى ومنها وادي المجمعة .</p>
+                            <p>&nbsp;</p>
+                            <p>الجزء المأكول :</p>
+                            <p>تضاف أوراق البعيثران إلى المشروبات الساخنة مثل مشروب الشاي , أو أحياناً يصنع منه مشروب خاص او مخلوط مع بعض النباتات العطرية الأخرى مثل الشيح والقرقاص والبابونج والجعد والقيصوم .</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="thndh" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_75 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/thnda.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_76 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>ثندة</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العربي والشائع : ثندة , ثدا , ثندي , ثده , عندب , السعد , قصيص</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العلمي :</p>
+                            <p>Cyperus conglomeratus Rottb</p>
+                            <p>&nbsp;</p>
+                            <p>الفصيلة : السعدية</p>
+                            <p>Cyperaceae</p>
+                            <p>&nbsp;</p>
+                            <p>وصف النبات :</p>
+                            <p>نبات عشبي معمر أملس لونه أخضر باهت . سيقانه طويلة تتراوح بين 30 - 70 سم . الأوراق أسطوانية حادة ومدببة القمة يصل طولها إلى 50 سم وأما النيبلات والتي عن طريقها يمكن تمييز النبات من بعيد يتراوح طولها بين 1 - 3 سم , تتجمع على
+                                شكل شعاعي ذات لون أخضر عندما تكون طرية , ولكنها تتحول إلى الأصفر الباهت عندما تجف .</p>
+                            <p>&nbsp;</p>
+                            <p>البيئة :</p>
+                            <p>ينمو هذا النبات في البيئات الرملية العميقة ( الكثبان الرملية ) .</p>
+                            <p>&nbsp;</p>
+                            <p>الجزء المأكول :</p>
+                            <p>يمضغ الجزء الأسفل من الساق ذو اللون الأبيض ويمص السائل المائي الموجود فيه , ويتم ذلك عن طريق سحب الساق رأسيا من التربة بقوة ثم يزال الغشاء الذي يحيط بالجزء الأسفل وأحيانا يخرج الساق بدون غشاء ويطلق عليه ( الشحمة ) , وهو ذو
+                                طعم حلو ولذيذ , والأفضل تجميع عدة سيقان مع بعضها ثم تمضغ وتمص وهي بذلك تغني إلى حد ما عن الماء عند الحاجة إليه في الصحراء .</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="jrjeer" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_79 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/jrjir.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_80 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>الجرجير</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العربي والشائع : الجرجير</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العلمي :</p>
+                            <p>Eruca sativa Mill</p>
+                            <p>&nbsp;</p>
+                            <p>الفصيلة : المتعامدة</p>
+                            <p>Cruciferae</p>
+                            <p>&nbsp;</p>
+                            <p>وصف النبات :</p>
+                            <p>نبات عشبي حولي متفرع يصل طوله إلى 60 سم . أوراقه مفصصه قليلاً مع فص كبير في مهاية الورقة . الأزهار ذات لون بيج فاتح أو مصفرة باهتة ذات عروق بنية أو اورجوانية وأحياناً خضراء غامقة .</p>
+                            <p>&nbsp;</p>
+                            <p>البيئة :</p>
+                            <p>ينمو الجرجير غالباً في الأراضي الرملية الثابته بخاصة على جوانب الطرق , كما يوجد بصورة كبيرة في المزارع الحدائق مغيرها .</p>
+                            <p>&nbsp;</p>
+                            <p>الجزء المأكول :</p>
+                            <p>تؤكل الأوراق مباشرة وهي ذات مذاق حار لاذع خصوصاً إذا أزهر النبات ولذا يفضل أكلها مع السلطة او ماكولات أخرى لتخفيف حرارتها ولذوعتها</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="j3d" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_84 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/ja3d.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_85 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>الجعد</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العربي والشائع : جعد , جعدة , كعدة</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العملي :</p>
+                            <p>Teucrium polium L</p>
+                            <p>&nbsp;</p>
+                            <p>الفصيلة : الشفوية</p>
+                            <p>Labiatae</p>
+                            <p>&nbsp;</p>
+                            <p>وصف النبات :</p>
+                            <p>نبات شجيري معمر ذو رائحة عطرية فواحة لونه رمادي يكسوه شعر صوفي أبيض ناعم , سيقانه كثيرة ومتفرعة تخرج من القاعدة ويتراوح طولها بين 10 - 40 سم , وتنتهي هذه الفروع بنورات عنقودية أو كروية أو بيضية مميزة والأزهار بيضاء صغيرة .
+                                أوراقه شريطية يصل طولها إلى 3سم جالسة وحافتها مقروضة وأحياناً تكون مفصصة .</p>
+                            <p>&nbsp;</p>
+                            <p>البيئة :</p>
+                            <p>ينمو نبات الجعد في البيئات الصخرية وعلى جوانب الأودية الضيقة شديدة الإنحدار وعلى جوانب مجاري الأمطار الجافة .</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>الجزء المأكول :</p>
+                            <p>تضاف أوراقه العطرية لمشروب الشاي فتعطيه مذاقاً جيداً كما يستخدم فاتحاً للشهية .</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="h7za" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_86 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/7aza.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_87 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>الحزا</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العربي والشائع : حزا .</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العلمي :</p>
+                            <p>Ducrosia anethifolia (DC) Boiss</p>
+                            <p>&nbsp;</p>
+                            <p>وصف النبات :</p>
+                            <p>نبات حولي ذو رائحة عطرية فواحة . تنمو أفرعه من القاعدة الخشبية ويصل طولها حوالي 35 سم . الوراق خضراء رمادية وهي طويلة بيضية الشكل وذات زوائد طرفية حادة . النورة خيمية والأزهار صغيرة فاتحة يتراوح عددها بين 12 - 18 في كل نورة
+                                ويلاحظ بأن الأسدية طويلة بارزة .</p>
+                            <p>&nbsp;</p>
+                            <p>البيئة :</p>
+                            <p>ينمو نبات الحزا في التربة الرملية الصلبة وكذلك في البيئات الصخرية وخصوصا قرب أماكن تجمع المياه .</p>
+                            <p>&nbsp;</p>
+                            <p>الجزء الماكول :</p>
+                            <p>يؤكل أوراق النبات ذات الرائحة العطرية الفواحة وطعمها يشبه البقدونس مع العلم أن بعض الناس يتقزز من طعم ورائحة نبات الحزا .</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="h7mbaz" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_88 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/7nbaz.png">
+
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_89 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>الحمباز</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العربي والشائع : حمباز , حمبازه , حمبيز , حمبيزان , حنباز , حمبزان , ضرس العجوز , رجل الغراب .</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العلمي :</p>
+                            <p>Emex spinosus L</p>
+                            <p>&nbsp;</p>
+                            <p>الفصيلة : الراوندية</p>
+                            <p>Polygonaceae</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>وصف النبات :</p>
+                            <p>نبات عشبي حولي ساقه مستلقيه على الأرض تحمل أفرعاً هوائية طولها بين 5 - 30 سم وقد يكون النبات مستلقياً على الأرض . الورقة لحمية بيضية - قلبية . أزهاره على شكل مجموعات عند العقد لونها اخضر يميل للحمرة أحياناً , وعن طريقها يمكن
+                                تمييز النبات . الجذر الأساسي للنبات أبيض متضخم .</p>
+                            <p>&nbsp;</p>
+                            <p>البيئة :</p>
+                            <p>ينمو نبات الحمباز في البيئات الرملية الضحلة والرملية الصلبة , ونادراً مايوجد في البيئات الرملية العميقة .</p>
+                            <p>&nbsp;</p>
+                            <p>الجزء الماكول :</p>
+                            <p>تؤكل أوراقه مباشرة او مع السلطة او تطبخ كحساء , اما سيقانه فتمضغ وتمص عصارتها التي تميل إلى طعم الحامض , وتؤكل جذوره البيضاء اللحمية التي تشبه جذر الفجل وهي ذات طعم حلو .</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="h7mb9e9" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_91 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/7mb9ee9.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_92 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>حمبصيص</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العربي والشائع : حمبصيص , حنبصيص , حمصيص .</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العلمي :</p>
+                            <p>Rumex pictus Forssk</p>
+                            <p>&nbsp;</p>
+                            <p>الفصيلة : الراوندية</p>
+                            <p>Polygonaceae</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>وصف النبات :</p>
+                            <p>نبات عشبي حولي شبه زاحف يتراوح طوله بين 10 - 20 سم سيقانه تخرج من القاعدة والأوراق جذعية ولحمية ومشرحة وبعضها ذات لون احمر . الأزهار صغيرة متجمعة والثمار مجنحة لونها زهري او مائلة للإصفرار .</p>
+                            <p>&nbsp;</p>
+                            <p>البيئة :</p>
+                            <p>ينمو نبات الحمبصيص في بيئات الكثبان الرملية وخصوصا على المنحدرات الرملية .</p>
+                            <p>&nbsp;</p>
+                            <p>الجزء الماكول :</p>
+                            <p>تؤكل اوراقه اللحمية نيئة وطعمها يميل للحموضة وحموضتها أقل من حموضة نبات الحميض , أو تقطع مع السلطة لتضيف الطعم الحمضي الخفيف للسلطة , كما ان ازهاره وبذوره قابلة للأكل اما السيقان فتمضغ حيث يمص عصيرها الحامض .</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="h7meed" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_94 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/7omeed.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_95 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>الحميض</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العربي والشائع : حميض , حماض , حميضاء , حامض , أبو حميض</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العلمي :</p>
+                            <p>Rumex vesicarius L</p>
+                            <p>&nbsp;</p>
+                            <p>الفصيلة :الراوندية</p>
+                            <p>Polygonaceae</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>وصف النبات :</p>
+                            <p>نبات حولي يتراوح ارتفاعه بين 10 - 70 سم , تنمو فروعه من القاعدة . اوراقه لحمية مثلثة الشكل . ازهاره حمراء صغيرة متجمعة في الجزء العلوي من النبات , ثماره المجنحة ذات لون اخضر مصفر في بداية تكوينها لكنها تصبح ذات لون زهري لامع
+                                أو احمر عندما تنضج , وتتميز بعروقها الحمراء الواضحة التي عن طريقها يعرف النبات من بعيد .</p>
+                            <p>&nbsp;</p>
+                            <p>البيئة :</p>
+                            <p>ينمو الحميض في الأراضي الرملية المتماسكة , وفي المنحدرات الصخرية .</p>
+                            <p>&nbsp;</p>
+                            <p>الجزء الماكول :</p>
+                            <p>تؤكل الوراق ذات الطعم الحامض ولذلك نرى ان كل أسمائه مشتقة من الحموضة , والأفضل ان تقطع هذه الأوراق مع السلطة لكي تعطيها الطعم الليموني , كما يمكن اكلها بعد الطبخ .</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="h7ndal" class="upage-content vertical-col hidden">
+                    <div class="grid grid-pad urow uib_row_22 row-height-22" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_49 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="widget uib_w_96 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/7ndal.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="widget uib_w_97 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>الحنظل</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العربي والشائع : حنظل , شري , العلقم , حدج</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العلمي :</p>
+                                        <p>Citrullus colocynthis (L) Schrad</p>
+                                        <p>&nbsp;</p>
+                                        <p>الفصيلة : القرعية</p>
+                                        <p>Cucurbitaceae</p>
+                                        <p>&nbsp;</p>
+                                        <p>وصف النبات :</p>
+                                        <p>نبات عشبي حولي زاحف له ساق مضلعة خشنة الوبر تمتد إلى حوالي مترين او ثلاثة امتار , وله محاليق متفرعة , الأوراق مفصصة عميقة التفصص ذات لون اخضر داكن خشنة الملمس . الأزهار صفراء اللون , والثمار والتي تسمى بالحدج بحجم
+                                            حبة البرتقال ذات الملمس الناعم , قطرها حوالي 10 سم , ولون قشرتها أخضر به خطوط صفراء ثم تتحول عند النضج إلى اللون الأصفر , والحنظل يضرب به المثل لشدة مرارة ثمرته .</p>
+                                        <p>&nbsp;</p>
+                                        <p>البيئة :</p>
+                                        <p>ينمو نبات الحنظل في الأراضي الرملية وفي الأدوية والأماكن التي تتجمع فيها مياه الأمطار , ونبات الحنظل يتحمل الحرارة بشكل كبير , وهو واسع الإنتشار .</p>
+                                        <p>&nbsp;</p>
+                                        <p>الجزء الماكول :</p>
+                                        <p>بذور الحنظل المسماة بالهبود أو الهبيد كانت تؤكل في الماضي وأيضا في الوقت الحاضر من أجل الاستئناس وتمضية الوقت كالفصفص والمكسرات الأخرى , ولكن الهبود يحتاج إلى معالجة خاصة ودقيقة من أجل التخلص من المواد السامة التي
+                                            بداخل البذرة وخصوصا لب الثمرة , والتي إذا تناولها الإنسان بكميات قليلة فإنها تسبب الإسهال , وأما إذا تناولها بكميات كبيرة فإنها تسبب التسمم لوجود مواد سامة مثل الكولوسنثين</p>
+                                        <p>colocynthin</p>
+                                        <p>ومادة الكولوسنثتين</p>
+                                        <p>colocynthitin</p>
+                                        <p>&nbsp;</p>
+                                    </div>
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+
+                <div id="hwa" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_98 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/7owa.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_99 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>بقراء -حوآ</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العربي والشائع : بقراء , حوا , بقيقراء , بقير</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العملي :</p>
+                            <p>Launaea capitata (Spreng) Dandy</p>
+                            <p>&nbsp;</p>
+                            <p>الفصيلة : المركبة</p>
+                            <p>Compositae</p>
+                            <p>&nbsp;</p>
+                            <p>وصف النبات :</p>
+                            <p>نبات عشبي حولي مفترش ذو شكل شبه كروي , أوراقه خضراء شاحبة مفصصة ريشية يصل تفصصها إلى قرب العرق الوسطي وحوافها ذات أسنان دقيقة , يتراوح طول الورقة عادة بين 2 - 10 سم وعرضها بين 0.5 - 3 سم , اما طول الأفرع حاملة الأزهار يصل إلى
+                                20 سم وهي عادة خالية من الأوراق .</p>
+                            <p>&nbsp;</p>
+                            <p>البيئة :</p>
+                            <p>ينمو هذا النبات في البيئات الرملية والصخرية وهو بذلك واسع الإنتشار</p>
+                            <p>&nbsp;</p>
+                            <p>الجزء الماكول :</p>
+                            <p>تؤكل الأوراق نيئة وهي ذات مذاق جيد وخصوصاً قبل أن يزهر النبات , وأحياناً تقطع هذه الأوراق مع السلطة او تطبخ كحساء مع خضروات اخرى , وهذا النبات مفضل لدي كثير من الناس ويكاد الجميع يعرفه , وعندما يأتي الربيع تجد ان كثيراً من
+                                الناس يجمعون هذا النبات ويتلذذون بأكله وبمذاقه الخاص ويجلبونه إلى أهليهم وأصدقائهم عند عودتهم من البر , ولكن يجب غسله جيداً لأنه ينمو مفترشاً الأرض مما يجعل اوراقه مليئة بالأتربة والغبار .</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="h7othan" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_101 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/7ozan.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_102 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>الحوذان</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العربي والشائع : حوذان , حاذان , حوزان , حودان</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العلمي :</p>
+                            <p>Picris babylonica Hand. -Mazz</p>
+                            <p>&nbsp;</p>
+                            <p>الفصيلة : المركبة</p>
+                            <p>Compositae</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>وصف النبات :</p>
+                            <p>نبات عشبي حولي مشعر , يتراوح طوله من 5 - 20سم الأوراق القاعدية طويلة ومفصصة أما الأوراق الساقية فقليلة وصغيرة وجالسة الأزهار ( الهامات ) على حوامل صفراء لامعة يصل قطرها إلى 3سم ويوجد لون أسود وسط الأزهار الغير ناضجة.</p>
+                            <p>&nbsp;</p>
+                            <p>البيئة :</p>
+                            <p>ينمو نبات الحوذان في البيئات الرملية والغرينية وأحياناً ينمو بكميات كثيفة في منطقة واحدة لدرجة انها تعكس بساطاً أصفراً لامعاً لاتمل العين من رؤيته .</p>
+                            <p>&nbsp;</p>
+                            <p>الجزء الماكول :</p>
+                            <p>تؤكل الأوراق مباشرة او تقطع مع السلطة</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="k5bez" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_104 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/5obeez.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_105 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>خبيزة</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العربي والشائع : خبيزة , خبيز , خباز , خبازي</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العلمي :</p>
+                            <p>Malva parviflora L</p>
+                            <p>&nbsp;</p>
+                            <p>الفصيلة : الخبازية</p>
+                            <p>Malvaceae</p>
+                            <p>&nbsp;</p>
+                            <p>وصف النبات :</p>
+                            <p>نبات عشبي حولي قائم يصل إرتفاعه إلى 40 سم أو مفترش . أوراقه قرصية أو كلوية الشكل ذات لون اخضر غامق . الأزهار صغيرة ومتجمعة بيضاء اللون تميل إلى اللون الوردي .</p>
+                            <p>&nbsp;</p>
+                            <p>البيئة :</p>
+                            <p>ينمو هذا النبات في التربة الرملية متوسطة التماسك , وفي المنخفضات الخصبة , وتنمو بشكل واسع في الأماكن التي تروى بالماء كالمزارع والحدائق وغيرها .</p>
+                            <p>&nbsp;</p>
+                            <p>الجزء الماكول :</p>
+                            <p>تؤكل الأوراق وكذلك الأفرع الغضة الطرية بعد طبخها كالحساء وطريقة طبخها تشبه طريقة طبخ الملوخية والرجلة , اما اكلها مباشرة فيعتقد بعض الناس انها تسبب مغصاً في البطن .</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="rb7ala" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_109 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/reb7la.png">
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_110 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>الربحلا</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العربي والشائع : الربحلا , الربحلى</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العلمي :</p>
+                            <p>Scorzonera papposa Dc</p>
+                            <p>&nbsp;</p>
+                            <p>الفصيلة : المركبة</p>
+                            <p>Compositae</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                            <p>وصف النبات :</p>
+                            <p>نبات حولي قائم سيقانه يتراوح طولها بين 15 - 40سم الأوراق بيضاوية طويلة وحافتها متموجة غير منتظم وفي العلى تكون الوراق أصغر . الزهرة طرفية ذات شكل جذاب حيث انها ذات لون وردي فاتح وفي وسط الزهرة يكون اللون وردي غامق مائل إلى
+                                اللون الأرجواني والمياسم صفراء واضحة .</p>
+                            <p>&nbsp;</p>
+                            <p>البيئة :</p>
+                            <p>ينمو نبات الربحلا في لابيئات الرملية الصلبة وفي البيئات الصخرية.</p>
+                            <p>&nbsp;</p>
+                            <p>الجزء الماكول :</p>
+                            <p>يؤكل جذر النبات الدرني المنتفخ وذلك بعد إزالة القشرة الداكنة التي تغطيه ولونه أبيض ناصع وطعمه حلو ولذيذ , وعادة يجد الشخص صعوبة في إستخراجه بيديه من الأرض وخصوصاً إذا كان النبات في بيئة صخرية</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="rglah" class="upage-content vertical-col hidden">
+                    <div class="widget uib_w_111 scale-image d-margins" data-uib="media/img" data-ver="0">
+                        <figure class="figure-align">
+                            <img src="images/reglah.png">
+
+                            <figcaption data-position="bottom"></figcaption>
+                        </figure>
+                    </div>
+                    <div class="widget uib_w_112 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                        <div class="widget-container left-receptacle"></div>
+                        <div class="widget-container right-receptacle"></div>
+                        <div>
+                            <p>الرجلة</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العربي والشائع : رجلة , بقلة , فرفاخ</p>
+                            <p>&nbsp;</p>
+                            <p>الاسم العلمي :</p>
+                            <p>Portulaca oleracea L</p>
+                            <p>&nbsp;</p>
+                            <p>الفصيلة : الرجلية</p>
+                            <p>Portulacaceae</p>
+                            <p>&nbsp;</p>
+                            <p>وصف النبات :</p>
+                            <p>نبات عشبي عصاري زاحف فروعه تفترش التربة أو قائم يصل إرتفاع إلى 50 سم . أوراقه بيضاوية ذات لون أخضر غامق , وهي لحمية عصيرية وحوافها أرجوانية واحياناً تكون كل الورقة أرجوانية , الأوراق والسيقان رخوة وناعمة الملمس . الأزهار صفراء
+                                فاتحة تتشكل في مجموعات من 3 - 5 أزهار . الثمره علبية تنفتح أفقياً تحتوي على عدد كبير من البذور البنية الداكنة.</p>
+                            <p>&nbsp;</p>
+                            <p>البيئة :</p>
+                            <p>ينموهذا النبات بكثرة في الحدائق والمزارع والبيئات الطينية الصلبة وفي الأودية , وعلى جوانب الطرق.</p>
+                            <p>&nbsp;</p>
+                            <p>الجزء الماكول :</p>
+                            <p>تؤكل الأوراق والسيقان مباشرة بعد غسلها ويفضل أن تضاف إلى الطعام لإعطائه نكهة خاصة كالبقدونس , كما يمكن عمل حسائ رجلة او طبخة مع خضراوات أخرى .</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="r5am" class="upage-content vertical-col hidden">
+                    <div class="grid grid-pad urow uib_row_26 row-height-26" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_55 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="widget uib_w_113 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/r5am.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="widget uib_w_114 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>الرخام</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العربي والشائع : الرخام , الرخامي , الرخاما .</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العلمي :</p>
+                                        <p>Convolvulus buschiricus Bornm</p>
+                                        <p>&nbsp;</p>
+                                        <p>الفصيلة : العليقية</p>
+                                        <p>Convolvulaceae</p>
+                                        <p>&nbsp;</p>
+                                        <p>وصف النبات :</p>
+                                        <p>نبات حولي يصل إرتفاعه إلى 60 سم . تنمو سيقانه من القاعدة وتكون مغطاة بشعيرات , الأوراق شريطية طويلة يصل طولها إلى 6سم . الأزهار بيضاء أو بنفسجية ذات شكل جذاب.</p>
+                                        <p>&nbsp;</p>
+                                        <p>البيئة :</p>
+                                        <p>ينمو نبات الرخام في البيئات الصلبة.</p>
+                                        <p>&nbsp;</p>
+                                        <p>الجزء الماكول :</p>
+                                        <p>يقشر جذر النبات ولذي يكون عادة مملوء بالماء ويمضغ ويمص للحصول على الماء عند الحاجة إليه .</p>
+                                        <p>&nbsp;</p>
+                                    </div>
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div id="rshad" class="upage-content vertical-col hidden">
+                    <div class="grid grid-pad urow uib_row_27 row-height-27" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_56 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="widget uib_w_115 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/rashad.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="widget uib_w_116 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>الرشاد</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العربي والشائع : رشاد .</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العلمي :</p>
+                                        <p>Lepidium aucheri Boiss</p>
+                                        <p>&nbsp;</p>
+                                        <p>الفصيلة : المتعامدة</p>
+                                        <p>Cruciferae</p>
+                                        <p>&nbsp;</p>
+                                        <p>وصف النبات :</p>
+                                        <p>نبات عشبي حولي يتراوح طوله بين 10 - 35سم . الأوراق القاعدية شكلها رمحي مقلوب أو ملعقية وتكون مفصصة ريشية , أما الأوراق الساقية فتكون تقريباً كاملة مستوية ذات حافة منشارية . الأزهار دقيقة ذات لون أبيض في مهاية الفروع
+                                            .
+                                        </p>
+                                        <p>&nbsp;</p>
+                                        <p>البيئة :</p>
+                                        <p>ينمو نبات الرشاد في الروضات ذات الطمي تحت الأشجار الكبيرة كالسدر والطلح وغيرها , وهو يعطي الروضات رائحة مميزة نفاذة , كما ينتشر على حواف الغدران .</p>
+                                        <p>&nbsp;</p>
+                                        <p>الجزء الماكول :</p>
+                                        <p>تؤكل أوراقه وسيقانه وهي ذات مذاق حار لاذع, ويفضل أكلها ضمن السلطة لكي يتخفف المذاق الحار .</p>
+                                        <p>&nbsp;</p>
+                                    </div>
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div id="z3looq" class="upage-content vertical-col hidden">
+                    <div class="grid grid-pad urow uib_row_28 row-height-28" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_57 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="widget uib_w_117 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/za3lloq.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="widget uib_w_118 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>الذعلوق</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العربي والشائع : ذعلوق , ثعلوق , ثعلوك , ذعلوك , لحية التيس</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العلمي :</p>
+                                        <p>Koelpinia linearis Pall</p>
+                                        <p>&nbsp;</p>
+                                        <p>الفصيلة : المركبة</p>
+                                        <p>Compositae</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>وصف النبات :</p>
+                                        <p>نبات عشبي حولي يتراوح طوله بين 10 - 20سم , تنمو أفرعه من القاعدة واوراقه تشبه اوراق الثيل ويصل طولها إلى 10سم . أزهاره صفراء وصغيرة , اما ميزته الأساسية فهي ثماره الجافة الشائكة ذات الشكل المنحني المعقوف من الأعلى
+                                            وعددها يتراوح بين 10 - 15 , وطولها بين 1.5 - 2سم .</p>
+                                        <p>&nbsp;</p>
+                                        <p>البيئة :</p>
+                                        <p>ينمو هذا النبات في البيئات الرملية والسهلية والصخرية والأودية , وهذا النبات واسع الانتشار.</p>
+                                        <p>&nbsp;</p>
+                                        <p>الجزء الماكول :</p>
+                                        <p>تؤكل اوراقه وسيقانه ويوصف بانه بارد ويفضل بعض الناس اكله خلال تناولهم لمشروب الشاي .</p>
+                                        <p>&nbsp;</p>
+                                    </div>
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div id="sder" class="upage-content vertical-col hidden">
+                    <div class="grid grid-pad urow uib_row_29 row-height-29" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_58 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="widget uib_w_119 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/sader.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="widget uib_w_120 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>السدر</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العربي والشائع : سدر , عبري , نبق .</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العلمي :</p>
+                                        <p>Ziziphus spina-christi L.. Willd</p>
+                                        <p>&nbsp;</p>
+                                        <p>الفصيلة : النبقية ( السدرية )</p>
+                                        <p>Rhamnaceae</p>
+                                        <p>&nbsp;</p>
+                                        <p>وصف النبات :</p>
+                                        <p>شجرة أو شجيرة يصل إرتفاعها إلى 4 أمتار . الساق متفرع والأفرع الصغيرة رمادية باهتة . الأوراق بيضية متطاولة طولها حوالي 3 سم وتتميز بوجود 3 عروق واضحة , ويخرج بالقرب من قاعدة كل ورقة شوكتان ( اذينات متحورة ) .</p>
+                                        <p>&nbsp;</p>
+                                        <p>البيئة :</p>
+                                        <p>ينمو نبات السدر في البيئات الصخرية وفي الأودية وعلى جوانب الروضات وينتشر بكثرة في الصمان حيث النبات السائد في الفياض هو السدر .</p>
+                                        <p>&nbsp;</p>
+                                        <p>الجزء الماكول :</p>
+                                        <p>تؤكل الثمار والتي تسمى عبري او نبق وهي بحجم حبات الكرز وأحياناً تكون اكبر وطعمها حلو .</p>
+                                        <p>&nbsp;</p>
+                                    </div>
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div id="s3dan" class="upage-content vertical-col hidden">
+                    <div class="grid grid-pad urow uib_row_30 row-height-30" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_59 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="widget uib_w_121 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/s3dan.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="widget uib_w_122 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>سعدان</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العربي والشائع : رجلة , بقلة , فرفاخ</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العلمي :</p>
+                                        <p>Neurada procumbens L</p>
+                                        <p>&nbsp;</p>
+                                        <p>الفصيلة : الوردية</p>
+                                        <p>Neuradaceae</p>
+                                        <p>&nbsp;</p>
+                                        <p>وصف النبات :</p>
+                                        <p>نبات عشبي حولي زاحف وبري لونه اخضر مشوباً بلون رمادي سيقانه كثيرة تنمو من القاعدة . اوراقه صغيرة ومفصصة . الأزهار صغيرة بيضاء مصفرة , الثمار شوكية يتراوح قطرها بين 1-2سم , وتصبح الأشواك حادة عندما تنضج الثمرة.</p>
+                                        <p>&nbsp;</p>
+                                        <p>البيئة :</p>
+                                        <p>ينموهذا النبات في البيئات الرملية العميقة مثل النفود وينمو في البيئات الرملية الضحلة وعلى المنحدرات الجبلية.</p>
+                                        <p>&nbsp;</p>
+                                        <p>الجزء الماكول :</p>
+                                        <p>تمضغ ثمارها الغضة حيث يوجد بها عصير مقبول المذاق , وهي سهلة الهضم قبل أن تتيبس أشواكها , اما إذا تيبست أشواكها عصيرها قد جف كما أن الأوراق أيضا تؤكل .</p>
+                                        <p>&nbsp;</p>
+                                    </div>
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div id="sh7oom" class="upage-content vertical-col hidden">
+                    <div class="grid grid-pad urow uib_row_31 row-height-31" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_60 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="widget uib_w_123 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/sha7oom.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="widget uib_w_124 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>الشحوم</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العربي والشائع : شحوم</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العلمي :</p>
+                                        <p>Cagea reticulata ( Pall ) Schult et Sehult</p>
+                                        <p>&nbsp;</p>
+                                        <p>الفصيلة : العشارية</p>
+                                        <p>Asclepiadaceae</p>
+                                        <p>&nbsp;</p>
+                                        <p>وصف النبات :</p>
+                                        <p>نبات حولي قائم ولكنه قصير ويتميز بان شكله جذاب وملفت للإنتباه ويتراوح طوله بين 5 - 10سم . ينمو من بصلة صغيرة تحت الأرض طولها بين 1 - 2سم . الأوراق شريطية ضيقة وتكون أطوال من الفروع التي تحمل الأزهار . الأزهار قائمة
+                                            ووحيدة يتراوح عددها بين 2 - 4 وقد تصل إلى 6 زهرات , وهي ذات لون أصفر واحياناً تكون مخضرة مع وجود خط بني مخضر خلف كل بتلة .</p>
+                                        <p>&nbsp;</p>
+                                        <p>البيئة :</p>
+                                        <p>ينمو نبات الشحوم عادة في المناطق الصخرية .</p>
+                                        <p>&nbsp;</p>
+                                        <p>الجزء الماكول :</p>
+                                        <p>تؤكل أوراقه الشريطية الضيقة .</p>
+                                    </div>
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div id="shdq" class="upage-content vertical-col hidden">
+                    <div class="grid grid-pad urow uib_row_32 row-height-32" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_61 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="widget uib_w_125 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/shadqalgmal.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="widget uib_w_126 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>شدق الجمل</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العربي والشائع : شدق الجمل , الشويخ , شوك الجمل أو شوك الابل , عين الجمل , خشير , لصيق</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العلمي :</p>
+                                        <p>Echinops spp</p>
+                                        <p>&nbsp;</p>
+                                        <p>الفصيلة : المركبة</p>
+                                        <p>Compositae</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>وصف النبات :</p>
+                                        <p>نبات شجيري او عشبي معمر شائك , يتراوح طوله بين 20 - 150 سم . أوراقه مفصصة ذات حافة شوكية والساق بني اللون باهت . الأزهار في هامة بيضاء او زرقاء باهتة , الأشواك تخرج بين ازهار الهامة ولكن في مستوى أقل من الأزهار
+                                            , وفي انواع اخرى تبرز الأشواك في مستوى أعلى من الأزهار .</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>البيئة :</p>
+                                        <p>ينمو نبات شدق الجمل في الأودية الواسعة والأودية الضيقة الصغيرة شديدة الإنحدار , ويرى أحياناً على جنبات الطرق . كما تنمو انواع اخرى منه في الكثبان الرملية .</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>الجزء الماكول :</p>
+                                        <p>يؤكل التخت الزهري وذلك بعد إزالة الأزهار والأشواك بعناية ويجب الحذر من الأشواك بشكل عام .</p>
+                                    </div>
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div id="shfl7" class="upage-content vertical-col hidden">
+                    <div class="grid grid-pad urow uib_row_33 row-height-33" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_62 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="widget uib_w_127 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/shfla7.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="widget uib_w_128 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>شفلّح (شدة على اللام )</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العربي والشائع : شفلح , لصف , ملاث</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العلمي :</p>
+                                        <p>Capparis spinosa L</p>
+                                        <p>&nbsp;</p>
+                                        <p>الفصيلة : الكبارية</p>
+                                        <p>Capparidaceae</p>
+                                        <p>&nbsp;</p>
+                                        <p>وصف النبات :</p>
+                                        <p>شجيرة معمرة زاحفة تكون أفرعها مستلقية على الأرض والنبات به أشواك صغيرة وحادة . الأوراق خضراء شاحبة بيضوية , اما الزهار فهي كبيرة بيضاء اللون تميل إلى اللون الوردي وتتميز بوجود عدد كبير من الأسدية البارزة ذات اللون
+                                            البنفسجي الفاتح . الثمرة كمثرية يتراوح طولها بين 2.5 - 5سم ذات لون اخضر داكن , وعندما تنضج الثمرة تنشطر وتنثني للخلف كاشفة عن لب احمر لامع به عدد كبير من البذور ذات اللون البني المائل للرمادي .</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>البيئة :</p>
+                                        <p>تنمو هذه الشجرة في المناطق الجبلية وخصوصاً في المنحدرات , فهي توجد على طول منحدرات الأودية , وتنمو بشكل واسع في الأماكن التي تروى بالماء كالمزارع والحدائق وغيرها وهي تتحمل الظروف القاسية .</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>الجزء الماكول :</p>
+                                        <p>يؤكل لب ثمارها الكمثرية الشكل وطعمه حلو اما القشرة فلا تؤكل والبذور حارة ولاذعة في حالة قضمها ولذا ينصح ببلعها مع اللب . البراعم الطرفية ذات الطعم الحار اللاذع أيضاً تؤكل ولكن بعد الطبخ أو التخليل وتستخدم مقبلات
+                                            . ولكن يجب الإنتباه إلى أن الثعابين والعقارب قد تختفي تحت نبات الشفلح , ولذا ينصح برمي حجر على النبات أو تحريك عصا بداخله قبل وضع اليد لقطف ثمار الشفلح !! .</p>
+                                    </div>
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div id="shee7" class="upage-content vertical-col hidden">
+                    <div class="grid grid-pad urow uib_row_34 row-height-34" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_63 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="widget uib_w_129 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/shee7.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="widget uib_w_130 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>الشيح</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العربي والشائع : شدق الجمل , الشويخ , شوك الجمل أو شوك الابل , عين الجمل , خشير , لصيق</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العلمي :</p>
+                                        <p>Artemisia herba-alba auct non Asso</p>
+                                        <p>&nbsp;</p>
+                                        <p>الفصيلة : المركبة</p>
+                                        <p>Compositae</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>وصف النبات :</p>
+                                        <p>نبات شجيري معمر عطري كثيف يصل طوله إلى 60سم سيقانه ناعمة وبرية ذات لون رمادي مخضر . تتجزأ الأوراق رأسياً إلى فصوص وتكون الأوراق العليا أصغر والسفلى مكدسة وأقل تفصصاً . الأزهار صغيرة وشبه أسطوانية ذات لون بني , يتراوح
+                                            طولها بين 3 - 4ملم وعرضها بين 1 - 2ملم , ويزهر هذا النبات في فصل الصيف .</p>
+                                        <p>&nbsp;</p>
+                                        <p>البيئة :</p>
+                                        <p>ينمو نبات الشيح في البيئات الرملية العميقة والبيئات الغرينية وحواف الأودية وجوانب الغدران , وهو محدود الإنتشار .</p>
+                                        <p>&nbsp;</p>
+                                        <p>الجزء الماكول :</p>
+                                        <p>تضاف أوراق الشيح إلى مشروب الشاي وغيره من المشروبات الساخنة وذلك لإعطائه نكهة عطرية جيدة أو يصنع منه مشروب ساخن , وينصح أهل البادية بقطف أوراق الشيح في الصباح الباكر لكي تكون طرية وممتلئة بالماء , أما في منتصف النهار
+                                            فإن المادة العطرية والماء تقل في الأوراق .</p>
+                                        <p>&nbsp;</p>
+                                    </div>
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div id="s9far" class="upage-content vertical-col hidden">
+                    <div class="grid grid-pad urow uib_row_35 row-height-35" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_64 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="widget uib_w_131 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/9faar.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="widget uib_w_134 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>صفـّار</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العربي والشائع : صفـّار , صٍـفار , صفراء .</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العلمي :</p>
+                                        <p>Schimpera arabica Hochst &amp; Steud</p>
+                                        <p>&nbsp;</p>
+                                        <p>الفصيلة : المتعامدة</p>
+                                        <p>Cruciferae</p>
+                                        <p>&nbsp;</p>
+                                        <p>وصف النبات :</p>
+                                        <p>نبات عشبي كثيف يتراوح طوله بين 5 - 35 سم . تنمو أوراقه من القاعدة وهي ذات شكل رمحي ملعقي رحافتها منشارية او مفصصة والأوراق الساقية طويلة شريطية . الأزهار صغيرة صفراء فاقعة متجمعة بشكل متعاقب في نهاية الساق لها رائحة
+                                            الملفوف . .</p>
+                                        <p>&nbsp;</p>
+                                        <p>البيئة :</p>
+                                        <p>ينمو نبات الصفـّار في البيئات الرملية الغرينية وفي التربة الرملية الصلبة ..</p>
+                                        <p>&nbsp;</p>
+                                        <p>الجزء الماكول :</p>
+                                        <p>تؤكل أوراقه وهي ذات طعم لاذع حار ويفضل اضافتها للسلطة لتخفيف مذاقها الحار .</p>
+                                        <p>&nbsp;</p>
+                                    </div>
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div id="a3ter" class="upage-content vertical-col hidden">
+                    <div class="grid grid-pad urow uib_row_36 row-height-36" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_65 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="widget uib_w_133 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/3tar.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="widget uib_w_135 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>العتر</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العربي والشائع : عتر , عتري , كبش , عنتار , عنتير .</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العلمي :</p>
+                                        <p>Glossonema varians (Stocks) J.D Hooker</p>
+                                        <p>&nbsp;</p>
+                                        <p>الفصيلة : العشارية</p>
+                                        <p>Asclepiadaceae</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>وصف النبات :</p>
+                                        <p>نبات حولي قائم ينمو بشكل شبه دائري وتنمو أفرعه من القاعدة ويتراوح طولها بين 10 - 20سم وقد يتجاوز ذلك في بعض الحيان . الأوراق خضراء رمادية يكسوها شعيرات وحافتها متموجة . الزهار صغيرة تنمو على شكل مجموعات تتراوح بين
+                                            2 - 6زهرات الثمار بيضية إلى رمحية الشكل ذات اطراف حادة وتكون مغطاة بالشعيرات والأشواك اللينة .</p>
+                                        <p>&nbsp;</p>
+                                        <p>البيئة :</p>
+                                        <p>ينمو نبات العتر في الشقوق الصخرية وخصوصاً الشقوق الموجودة في المنحدرات الصخرية .</p>
+                                        <p>&nbsp;</p>
+                                        <p>الجزء الماكول :</p>
+                                        <p>تؤكل ثمار العتر ذات اللب الأبيض والتي تسمى عند بعض أهل المناطق بـ " جريوات العتر " ومفرها جريو عتر وتسمى أيضا بـ " قرون العتر " وطعمها لذيذ وحلو ويوجد على الثمار أشواك طرية تؤكل مع ثماره , ولكن عند نضوج الثمرة فإن
+                                            ملمسها يصبح خشناً وأشواكها حادة وينمو في بذورها شعيرات ولذا ينصح بعدم اكلها . كما تؤكل الأوراق الغضة .</p>
+                                        <p></p>
+                                    </div>
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div id="a3rfg" class="upage-content vertical-col hidden">
+                    <div class="grid grid-pad urow uib_row_37 row-height-37" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_66 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="widget uib_w_136 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/3rfag.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="widget uib_w_137 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>العرفج</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العربي والشائع : العرفج .</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العلمي :</p>
+                                        <p>Rhanterium epapposum Oliv</p>
+                                        <p>&nbsp;</p>
+                                        <p>الفصيلة : المركبة</p>
+                                        <p>Compositae</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>وصف النبات :</p>
+                                        <p>شجيرة دائرية على شكل نصف كروي يصل طول أفرعها إلى 70سم وقد يصل طولها احياناً إلى المتر . يغطي أفرعها الغضة شعيرات بيضاء ناعمة . الأوراق ضيقة جالسة ومتباعدة وذات حافة مسننة يتراوح طولها بين 1 - 3سم . توجد النورات
+                                            في قمم الأفرع وهي ذات لون أصفر باهت تظهر في فصل الربيع واوائل فصل الصيف وشجيرة العرفج ذات رائحة عطرية .</p>
+                                        <p>&nbsp;</p>
+                                        <p>البيئة :</p>
+                                        <p>تنمو شجيرات العرفج في البيئات الرملية الصلبة والبيئات الصخرية ..</p>
+                                        <p>&nbsp;</p>
+                                        <p>الجزء الماكول :</p>
+                                        <p>تستخدم الأزهار لإعداد مشروب ساخن لذيذ الطعم او تضاف ازهاره إلى مشروب الشاي لإعطاءه نكهة عطرية جيدة .</p>
+                                        <p>&nbsp;</p>
+                                    </div>
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+                <div id="a3shrq" class="upage-content vertical-col hidden">
+                    <div class="grid grid-pad urow uib_row_38 row-height-38" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_67 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="widget uib_w_138 scale-image d-margins" data-uib="media/img" data-ver="0">
+                                    <figure class="figure-align">
+                                        <img src="images/3shraq.png">
+                                        <figcaption data-position="bottom"></figcaption>
+                                    </figure>
+                                </div>
+                                <div class="widget uib_w_139 d-margins txt-discription" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>العشرق</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العربي والشائع : عشرق , عشرج , عسرج .</p>
+                                        <p>&nbsp;</p>
+                                        <p>الاسم العلمي :</p>
+                                        <p>Cassia italica ( Mill) F.W.Andr</p>
+                                        <p>&nbsp;</p>
+                                        <p>الفصيلة : البقولية</p>
+                                        <p>Leguminosae</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>وصف النبات :</p>
+                                        <p>شجيرة يصل طولها إلى 90 سم . أفرعها ملساء تخرج من ساق خشبية . الأوراق خضراء مزرقة وهي مركبة ريشية زوجية والوريقات بيضاوية جالسة . الأزهار صفراء . الثمار قرنية كلوية الشكل طولها حوالي 5سم وعرضها 2سم . ينراوح عدد البذور
+                                            بين 6 - 12 بذرة .</p>
+                                        <p>&nbsp;</p>
+                                        <p>البيئة :</p>
+                                        <p>ينمو نبات العشرق في البيئات الرملية الصلبة وكذلك في البيئات الصخرية .</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>الجزء الماكول :</p>
+                                        <p>تؤكل الثمار القرنية الكلوية عندما تكون خضراء ( غير ناضجة ) وطعمها يشبه طعم البازلا ويعتمد بعض الناس إلى إستخراج البذور الخضراء وأكلها بدون القشرة . اما إذا أصبح لون الثمار بنياً داكناً فلا تؤكل لأن طعمها يصبح مراً
+                                            ويكون لها تأثير مسهل .</p>
+                                        <p>&nbsp;</p>
+                                    </div>
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+
+                <div id="about" class="upage-content vertical-col left hidden">
+                    <div class="grid grid-pad urow uib_row_44 row-height-44" data-uib="layout/row" data-ver="0">
+                        <div class="col uib_col_72 col-0_12-12" data-uib="layout/col" data-ver="0">
+                            <div class="widget-container content-area vertical-col">
+
+                                <div class="widget uib_w_149 d-margins abouttxt" data-uib="media/text" data-ver="0">
+                                    <div class="widget-container left-receptacle"></div>
+                                    <div class="widget-container right-receptacle"></div>
+                                    <div>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>تطبيق النباتات البرية المآكولة في</p>
+                                        <p>&nbsp;</p>
+                                        <p>المملكة العربية السعودية</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>برمجة وتصميم مؤسسة</p>
+                                        <p>&nbsp;</p>
+                                        <p>تطبيقات للبرمجيات</p>
+                                        <p>&nbsp;</p>
+                                        <p>yasser@ymail.com</p>
+                                        <p>&nbsp;</p>
+                                        <p>المراجع للمادة العلمية</p>
+                                        <p>&nbsp;</p>
+                                        <p>خبيرة الاعشاب</p>
+                                        <p>&nbsp;</p>
+                                        <p>علياء سويلم العلي</p>
+                                        <p>&nbsp;</p>
+                                        <p>كتاب</p>
+                                        <p>النباتات البرية الماكولة</p>
+                                        <p>في المملكة العربية السعودية</p>
+                                        <p>&nbsp;</p>
+                                        <p>تأليف</p>
+                                        <p>د. إبراهيم العريض</p>
+                                        <p>أ/ سعود الفراج</p>
+                                        <p>&nbsp;</p>
+                                        <p>منتدي الحبردية</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                        <p>&nbsp;</p>
+                                    </div>
+                                </div><span class="uib_shim"></span>
+                            </div>
+                        </div>
+                        <span class="uib_shim"></span>
+                    </div>
+                </div>
+
+                <div id="imag" class="upage-content vertical-col left hidden">
+                    <div class="galleria image-gallery-size widget uib_w_151 d-margins" data-uib="media/image_gallery" data-ver="0" data-sm-trigger="true" images-json="gallery_images/gallery_images.json">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="wrap-element uib_w_2" data-uib="app_framework/footer" data-ver="1" id="af-footer-0">
+
+            <a class="widget uib_w_7 d-margins icon left" data-uib="app_framework/button" data-ver="1">النباتات</a><a class="widget uib_w_6 d-margins icon home" data-uib="app_framework/button" data-ver="1">الرئيسية</a><a class="widget uib_w_150 d-margins icon right"
+            data-uib="app_framework/button" data-ver="1">الصور</a>
+
+        </footer>
+    </body>
+
+</html>
